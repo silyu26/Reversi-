@@ -1,0 +1,5 @@
+\section{Exercise 2}
+Our code for Alpha-Beta Pruning relies on the pseudo code from the lecture "Artificial Intelligence" by Prof. Lakemeyer. We do not work on a tree structure but use recursion.\\
+We did one modification for the first level of the search tree. The pseudo code suggests to calculate the alpha-value for the root and then return the action that has this value as its own alpha-value. However, our methods for calculating alpha and beta only return the value and no corresponding move.\\
+Modifying it to return both seemed unnecessary as we only need the move for level 1. Therefore, we calculate level 1 in an own method and remember the move that belongs to the best alpha-value seen.\\
+We also changed our code such that there can be several enemy players by checking whether we first player is us (then we calculate the alpha-value for the next level) or someone else (then we calculate the beta-value).

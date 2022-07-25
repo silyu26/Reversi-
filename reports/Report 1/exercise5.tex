@@ -1,0 +1,19 @@
+\section{Exercise 5}
+\subsection{Building Phase}
+\textbf{Heuristic}:
+We thought that a position should be viewed as "good" if we have big diffrence in occupied Tile to the players under us and a low difference to the ones over us. Having players above you in the ranking is "bad", having them below you is"good". We thought that its "better" to play against opponents close to you in the ranking(to save your position from players trying to pass you in the ranking and to pass players above you). \\
+\textbf{Therefore} we calculate a value for a given map and player(us) by:
+    \begin{itemize}
+    \item counting the Tiles occupied by every player.
+    \item Now we calculate the diffrence between our number of occupied tiles and every other.
+    \item We added a factor (distance factor) that leads to playing against opponents close to you in the ranking.The basic idea is that we factor each summand with either $1 - \frac{\mid difference(i,j) \mid}{totalDifference}$ for player j above us in the ranking and  $\frac{\mid difference(i,j) \mid}{totalDifference}$ for player j above us.
+    \item a value is calculated for every opponent: calculating the distance, calculating the distance factor, switching the sign if the player viewed is above us.
+    \item all these values are summed
+\end{itemize}
+The heuristic we chose aims to get our player as high as possible in the ranking. To achieve that we try to minmize the distance to opponents above us and maximize it to the opponents below us. The player easiest to pass in the ranking is the closest one above us, thats why the distance to their stone is more important to the result value, after all we want to be as high as possible in the ranking, which is not the same as having as many stones as possible.  The player most likely to pass us in the ranking is the closest one below us. Thats why the distance to them is of greater importance then the distance to opponents far away.\newpage
+\subsection{Elimination Phase}
+\textbf{Heuristic}: We use the same heuristic. But before calculating a move, we watch if the distance to any player is greater than \begin{center}
+    #totalbombs $\times$ (2$\times$BombRadius)$^{2}$
+\end{center}
+These players are not in  our reach. We ignore them when calculating the result of a game. Its not good to destroy someones tiles if we cannot reach them until the game ends.\\
+Note: that is not really part of the heuristic, it justs defines the set of players relevant for calculating result.

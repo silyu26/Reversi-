@@ -1,0 +1,5 @@
+\section{Exercise 1}
+Our code for Minimax relies on the pseudo code from the lecture "Artificial Intelligence" by Prof. Lakemeyer.\\ We do not work on a tree structure but use recursion. The function takes the cut-off depth, the current depth and a map state as arguments.\\
+The termination condition is whether the current depth is equal to the cut-off depth. Then we return the heuristic value.\\
+If we have not reached the cut-off depth yet, we first check whether the current player can make a move and otherwise we call the function for the next player. If the current player can make a move, we recursively calculate the Minimax values for every possible successor map. If the current player is us, then we return the best of the resulting values and otherwise the worst.\\
+On the first level, we remember the move that belongs to the best seen Minimax value of a successor state and finally we return this move.

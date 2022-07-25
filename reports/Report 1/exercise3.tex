@@ -1,0 +1,11 @@
+\section{Exercise 3}
+\subsection{Discussions}
+\begin{itemize}
+    \item When is a move valid?  
+\end{itemize}
+\subsection{Solutions}
+\begin{itemize}
+    \item After we found the logical requirements of a valid move, we needed to check given moves on a given map for these with an algorithm.
+    \item We came up with a boolean type algorithm that decides if a given move is valid.
+    \textbf{Therefore} we check if the coordinates the move is done refers to a valid tile in the game. If were in the second phase, the move is valid. If the tile the move is performed on is player-occupied already, we checked if the moving player has enough override stones. Then we check if theres a path in any direction of player-occupied Tiles to a Tile occupied by the moving player. If there is, the move is valid, otherwise it isn't because no stones are turned.
+\end{itemize}

@@ -1,0 +1,11 @@
+image: whatthefuckisadockerid666/swp-image:latest
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+
+
+build:       # This job runs in the build stage, which runs firstly.
+  stage: build
+  script:
+    - ant jar
+

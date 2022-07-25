@@ -1,0 +1,19 @@
+\section{Exercise 1}
+\subsection{Discussions}
+\begin{itemize}
+    \item How do we know if it's time to get a message from the server? This was our main challenge in uderstanding the socket communication.
+    \item There are 9 different types of messages (7 from the server and 2 from us), how do we differentiate them and make correspongding actions?
+    
+\end{itemize}
+
+\subsection{Solutions}
+We solved our main problems (the ones above) by:
+\begin{itemize}
+    \item Using$DataInputStream.read()$.
+    \item Extracting the message type and deal with it using $switch$ statement.
+\end{itemize}
+    All in all we implemented a client that handles the communication with the server using TCP. It can react to every type of message given in the network specifications and it can send messages indicating our own moves to the server.
+
+
+  
+

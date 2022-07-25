@@ -1,0 +1,14 @@
+\section{Exercise 2}
+\subsection{Discussions}
+We discussed to implement the heuristic function developed for the last assignment exactly as we created it. 
+
+\subsection{Solutions}
+For assignment 1, we discussed for a while how to implement the heuristics. Our idea was to take the distances to other players into account and weighed those distances such that our AI aims to play against players close to us in the leaderboard more.
+
+Therefore we had some formula, which turned out not to fit our first idea. We found this formula serving our puposes better:
+\[ -d \exp^{-((d)/(c))}\]
+where d is the distance to one player and c is the sum of distance to all other players. This is summed for every player above us. For players below us
+\[ d \exp^{-((d)/(c))}\]
+is summed. (d = distance from us to player viewed in this summand, c total of distances us to all others)
+\\ The first step was to count all the tiles occupied by different players(step over map). Now we have a ranking, which we can calculate the distances with.
+\\ The implementation of that heuristic function was straightfoward. We summed the values of the functions above to get a result value.

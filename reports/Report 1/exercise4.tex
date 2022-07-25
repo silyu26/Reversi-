@@ -1,0 +1,14 @@
+\section{Exercise 4}
+\subsection{Discussions}
+\begin{itemize}
+    \item Given a map and a valid move, how to efficiently implement a method that calculates the successor map.
+    \item Given a map, how to efficiently calculate all the possible fields for the next stone.
+    
+\end{itemize}
+
+\subsection{Solutions}
+\begin{itemize}
+    \item \textbf{First thought}: Go through all the tiles and check if this tile is suitable, but this would be too inefficient.\\ \textbf{Improvement}: There are only two cases, we place either an override stone on an occupied tile or a normal stone on an unoccupied tile, which must have at least one occupied neighbouring tile. 
+    \item Use of \textbf{Array List} to save the empty tiles with occupied neighbours and the occupied tiles, which simplifies the calculation.
+    \item Specify bomb/override for bonus fields and player number for choice fields by adding a choice variable in the \textbf{move class}. Different characteristics make up different moves for us, which we also take into account when listing the successors.
+\end{itemize}

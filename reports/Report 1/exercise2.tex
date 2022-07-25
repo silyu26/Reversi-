@@ -1,0 +1,14 @@
+\section{Exercise 2}
+\subsection{Discussions}
+\begin{itemize}
+    \item How to represent the map, the different field and the transitions.
+    \item How to efficiently calculate the neighbouring tiles of a tile.
+\end{itemize}
+
+\subsection{Solutions}
+  \begin{itemize}
+      \item In this task we used the \textbf{2-dimensional array} to represent the coordinate system of the map, which was the first idea came to our mind.
+      \item Use \textbf{Hashmap} of type (x,y,direction) -> Tile(Neighbour) to store the extra transitions given by the server. 
+      \item \textbf{First thought}: Define a class \textbf{Tile} with several subclasses to represent different types of tiles, which allows good modification possibilities.\\ \textbf{Improvement}: Use of enumeration class \textbf{TileTypes} combining with the class \textbf{Tile} with several methods and attributes.
+      \item \textbf{First thought}: Calculate the neighbouring tiles by calculating the (x,y) coordinates of them, which would not work so well for special transitions.\\ \textbf{Second thought}: Store for each tile its 8 neighbours, which would cause too much memory overhead.\\ \textbf{Improvement}:Firstly check the Hashmap if there are special transitions, then calculate with (x,y) coordinates. 
+  \end{itemize}

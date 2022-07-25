@@ -1,0 +1,28 @@
+\section{General changes}
+\subsection{Saving neighbours}
+\subsubsection{Problem}
+Before we used to save the extra transitions in a hash map. When looking for a neighbour, we checked whether there was an entry in the hash map for this transition. However, on maps with many extra transitions, this turned out to be quite inefficient as we needed to check the transitions of all tiles.
+\subsubsection{Solution}
+Each tile now saves their own neighbours in an ArrayList containing Integer arrays. Therefore, we can specifically check the neighbours for this tile and don't need to look at every extra transition of the whole map.
+
+\subsection{Changing directions}
+\subsubsection{Problem}
+We did not notice that taking extra transitions could change the direction of a path. Therefore, our successor maps and move validation did not always calculate the correct results.
+\subsubsection{Solution}
+For each step that we take, we check whether it uses an extra transition and update the direction accordingly.
+
+\subsection{Endless loops}
+\subsubsection{Problem}
+In our successor map and move validation methods, we encountered endless loops. This was because of a mistake in the break condition. We breaked the loop if we returned to the tile where we started. However, it could be possible to have a loop at a later point that was not noticed by our program.
+\subsubsection{Solution}
+We have a new 2-dimensional Array called track which tracks the tiles that we already saw. It has the size of the map and track[x][y] corresponds to tile (x,y) of the map. At the beginning of each path calculation, we reset the array. Then, for each tile that we checked we would update the value in the array. By looking at the array we could check whether we already were at this tile and therefore ran into a circle.\\
+At first, the values stored in the array were boolean. It was initialized with false and updated to true if we visited the tile. However we noticed that it would be possible to visit a tile from different directions without being in a circle. We only need to break if we visited the tile from the same direction twice. Boolean values could not express that. However, storing 8 different values for each direction for each tile seemed like too much space. Therefore, we came up with a solution that only needed one Integer value per tile. Each entry is initialized with 1. For each direction that we visited a tile from, a distinct prime number is multiplied to the entry. We use the 2nd to 9th prime numbers for that. We can now check whether we visited a tile from a certain direction by checking if the corresponding prime number is a factor of the array entry. The starting tile is initialized with 9699690, which is the product of the 2nd to 9th prime numbers, because we want to break if we reach the starting tile from any direction.
+
+\subsection{Who did what?}
+\begin{itemize}
+    \item Exercise 1 (Minimax): Jamie, Silyu
+    \item Exercise 2 (Alpha-Beta): Jamie
+    \item Exercise 3 (Benchmark): Thomas
+    \item Implementation of command line flags: Jascha, Jamie
+    \item General improvements and debugging: Jamie
+\end{itemize}

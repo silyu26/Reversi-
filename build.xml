@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="ReversiAI" default="jar" basedir=".">
+	<target name="compile" depends="clean">
+		<mkdir dir="./bin/classes" />
+		<javac srcdir="./src/ReversiAi" destdir="./bin/classes/" encoding="UTF-8" />
+	</target>
+	<target name="clean">
+		<delete file="bin/swp2022_group3.jar"/>
+		<delete dir="bin/classes"/>
+	</target>
+	<target name="jar" depends="clean, compile">
+		<jar destfile="./bin/swp2022_group3.jar">
+			<fileset dir="./bin/classes"/>
+			<manifest>
+				<attribute name="Main-Class" value="ReversiAi.MainClass"/>
+			</manifest>
+		</jar>
+	</target>
+</project>

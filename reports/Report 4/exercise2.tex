@@ -1,0 +1,14 @@
+\section{Exercise 2}
+This part of this weeks assignment deals with benchmarking. We evaluated our different move- finding algorithms (MiniMax, Alpha beta without sort, Alpha beta with sort) by measouring the time each algorithm takes to find a move and the amount of states each algorithm needs to calculate for thoses moves.//
+From those values, the computation time per state for each algorithm can be estimated.\\
+The efficiency of the algorithms in terms of: \textbf{time the algorithms takes to find a certain move} and in terms of \textbf{the amount of states the algorithms need to calculate} , can be compared. The following part will view the data we obtained and present the conclusion we could make from that.
+\subsection{results}
+Over ten different maps for a fixed depth of three, our ReversiAi needed to calculate 865 different moves. We let each algrithm calculate a move everytime one is requested and we return one of them after.\\
+Our Minimax implementation calculated \textbf{30169342} states in \textbf{548,972 s}. This leeds to a calculation time per state of \textbf{54 ms}.\\
+Our Alpha-beta implementation with move ssorting turned off calculated \textbf{7775122} states in \textbf{162,778 s}. This leeds to a calculation time per state of \textbf{47
+ ms}.\\
+ Our Alpha-beta implementation with move ssorting turned off calculated \textbf{4334397
+} states in \textbf{93,694 s}. This leeds to a calculation time per state of \textbf{46
+ms}.
+If youre interested in the data, here is an Excel-sheet with everything we measured. The columns(left to right) stand for the time minimax, alphabeta withouto search and alpha-beta with search take to calculate the same move. For each map theres one table. At the bottom of the table you can find the amount of states the different algorithms calculated for the game on the map.\\
+\url{https://studentsrwthaachende-my.sharepoint.com/:x:/g/personal/as7mqpuzewaqwwwd_students_rwth-aachen_de/ETvO3bDTUrBItZIshH5kEN0BdQo0US77UvfagCuIrX5ApA?e=TwnPqz}

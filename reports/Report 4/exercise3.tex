@@ -1,0 +1,9 @@
+\section{Exercise 3}
+Our implementation of Minimax and Alpha-Beta both basically use Depth-First Search. Therefore we implemented iterative deepening for both of them and use it to handle time limits.\\
+We use a for loop for iterating the depth, starting with 1 and going up to the maximum given depth. After each calculation, we check whether there is still enough time for the next calculation as described below.\\
+In the Minimax and Alpha-Beta Methods we also have a safety measure. Before each expansion of a node we check whether we are only 200ms away from the time limit. If so, we set a global variable abortSearch to true, leading to no further expansions. Iterative deepening will then use the result of the last complete calculation so we do not compare any heuristics from different levels.
+\subsection{Minimax}
+For calculating level $i+1$ for $i > 0$ we remember the time that it took to calculate Minimax to depth $i$. We estimate the time that it took to calculate level $i$ by subtracting the calculation time for depth $i-1$ from the calculation time for depth $i$. We then estimate the time for the calculation of depth $i+1$ by taking the calculation time for depth $i$ and adding the time for level $i$ times a branching factor. For the branching factor of one game state we use the number of moves that are possible on this game state. At first, we used the maximum branching factor that we had in the calculation of depth $i$ but that turned out to be too pessimistic. We now use the average branching factor and that works fine.
+
+\subsection{Alpha-Beta}
+The basic idea is the same as for Minimax. However because of the pruning, we cannot take the same branching factor. We decided to use the number of states in level $i$ divided by the number of states in level $i+1$ and that turned out to work well.
